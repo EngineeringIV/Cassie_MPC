@@ -1,0 +1,4 @@
+LIBRARY FG_Simulator_cgxe.mexw64
+EXPORTS
+mexFunction
+mexfilerequiredapiversion

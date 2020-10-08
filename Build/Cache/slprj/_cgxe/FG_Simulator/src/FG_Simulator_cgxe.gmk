@@ -1,0 +1,128 @@
+#--------------------------- Tool Specifications -------------------------
+#
+# Modify the following macros to reflect the tools you wish to use for
+# compiling and linking your code.
+#
+CC = "C:\Program Files\MATLAB\R2017b\bin\win64\mex.exe" 
+LD = $(CC)
+ 
+MODEL     = FG_Simulator
+TARGET      = cgxe
+MODULE_SRCS   = m_1lvqyuHxNSV5hwR9Rwtvi.c
+MODEL_SRC  = FG_Simulator_cgxe.c
+MODEL_REG = FG_Simulator_cgxe_registry.c
+MAKEFILE    = FG_Simulator_cgxe.gmk
+MATLAB_ROOT  = c:\program files\matlab\r2017b\toolbox\stateflow\stateflow\..\..\..
+BUILDARGS   = 
+#------------------------------ Include/Lib Path ------------------------------
+ 
+USER_INCLUDES = -I"C:\Users\mengy\Desktop\final_project\cassie_flatground_controller-master\cassie_flatground_controller-master\Build\Cache\slprj\_cgxe\fg_simulator\src" -I"C:\Users\mengy\Desktop\final_project\cassie_flatground_controller-master\cassie_flatground_controller-master" -I"C:\Users\mengy\Desktop\final_project\cassie_flatground_controller-master\cassie_flatground_controller-master\controllers\flatground" -I"D:\graduate\robots\cassie\github\cassie_controller_v3_yukai\controllers\flatground\utils\funcs\kin" -I"C:\Users\mengy\Desktop\final_project\cassie_flatground_controller-master\cassie_flatground_controller-master\controllers\flatground\utils\funcs\kin\src" 
+AUX_INCLUDES = 
+MLSLSF_INCLUDES  = \
+    -I"C:\Program Files\MATLAB\R2017b\extern\include" \
+    -I"C:\Program Files\MATLAB\R2017b\simulink\include" \
+    -I"C:\Program Files\MATLAB\R2017b\rtw\c\src" 
+
+THIRD_PARTY_INCLUDES = -I"C:\Users\mengy\Desktop\Final_Project\Cassie_FlatGround_Controller-master\Cassie_FlatGround_Controller-master\Build\Cache\slprj\_cgxe\FG_Simulator\src" 
+
+INCLUDE_PATH = $(USER_INCLUDES) $(AUX_INCLUDES) $(MLSLSF_INCLUDES) $(COMPILER_INCLUDES) $(THIRD_PARTY_INCLUDES)
+ 
+#----------------- Compiler and Linker Options --------------------------------
+ 
+# Optimization Options
+ 
+CC_OPTS =  COPTIMFLAGS="-O2" 
+CPP_REQ_DEFINES = -DMATLAB_MEX_FILE
+ 
+# Uncomment this line to move warning level to W4
+# cflags = $(cflags:W3=W4)
+CFLAGS = $(CC_OPTS) $(CPP_REQ_DEFINES) $(INCLUDE_PATH)
+ 
+LDFLAGS =  
+ 
+AUXLDFLAGS = 
+#----------------------------- Source Files -----------------------------------
+ 
+THIRD_PARTY_SRCS =   
+REQ_SRCS  = $(MODEL_SRC) $(MODEL_REG) $(MODULE_SRCS) $(THIRD_PARTY_SRCS) 
+
+USER_ABS_OBJS    = \
+		ComPosition_src.obj \
+		ComVelocity_src.obj \
+		J_LeftToeBottomBack_src.obj \
+		J_LeftToeBottomFront_src.obj \
+		J_LeftToeBottom_src.obj \
+		J_LeftToeJoint_src.obj \
+		J_RightToeBottomBack_src.obj \
+		J_RightToeBottomFront_src.obj \
+		J_RightToeBottom_src.obj \
+		J_RightToeJoint_src.obj \
+		LeftToeBottomBack_src.obj \
+		LeftToeBottomFront_src.obj \
+		LeftToeBottom_src.obj \
+		LeftToeJoint_src.obj \
+		RightToeBottomBack_src.obj \
+		RightToeBottomFront_src.obj \
+		RightToeBottom_src.obj \
+		RightToeJoint_src.obj \
+
+AUX_ABS_OBJS =
+
+REQ_OBJS = $(REQ_SRCS:.cpp=.obj)
+REQ_OBJS2 = $(REQ_OBJS:.c=.obj)
+OBJS = $(REQ_OBJS2) $(USER_ABS_OBJS) $(AUX_ABS_OBJS) $(THIRD_PARTY_OBJS)
+OBJLIST_FILE = FG_Simulator_cgxe.mol
+SFCLIB = 
+AUX_LNK_OBJS = 
+USER_LIBS = 
+PARLIB = 
+ 
+#--------------------------------- Rules --------------------------------------
+ 
+MEX_FILE_NAME = $(MODEL)_$(TARGET).mexw64
+ 
+ $(MEX_FILE_NAME): $(MAKEFILE) $(OBJS) $(SFCLIB) $(AUX_LNK_OBJS)
+	@echo ### Linking ...
+	$(LD) -silent LDFLAGS="$$LDFLAGS $(LDFLAGS) $(AUXLDFLAGS)" -output $(MEX_FILE_NAME) @$(OBJLIST_FILE) $(USER_LIBS) $(SFCLIB) $(PARLIB) $(IPPLIB) $(THIRD_PARTY_LIBS) 
+%.obj :    %.c
+	$(CC) -c $(CFLAGS) $<
+
+%.obj :    %.cpp
+	$(CC) -c $(CFLAGS) $<
+
+ComPosition_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/ComPosition_src.c
+	$(CC) -c $(CFLAGS) $<
+ComVelocity_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/ComVelocity_src.c
+	$(CC) -c $(CFLAGS) $<
+J_LeftToeBottomBack_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_LeftToeBottomBack_src.c
+	$(CC) -c $(CFLAGS) $<
+J_LeftToeBottomFront_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_LeftToeBottomFront_src.c
+	$(CC) -c $(CFLAGS) $<
+J_LeftToeBottom_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_LeftToeBottom_src.c
+	$(CC) -c $(CFLAGS) $<
+J_LeftToeJoint_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_LeftToeJoint_src.c
+	$(CC) -c $(CFLAGS) $<
+J_RightToeBottomBack_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_RightToeBottomBack_src.c
+	$(CC) -c $(CFLAGS) $<
+J_RightToeBottomFront_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_RightToeBottomFront_src.c
+	$(CC) -c $(CFLAGS) $<
+J_RightToeBottom_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_RightToeBottom_src.c
+	$(CC) -c $(CFLAGS) $<
+J_RightToeJoint_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/J_RightToeJoint_src.c
+	$(CC) -c $(CFLAGS) $<
+LeftToeBottomBack_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/LeftToeBottomBack_src.c
+	$(CC) -c $(CFLAGS) $<
+LeftToeBottomFront_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/LeftToeBottomFront_src.c
+	$(CC) -c $(CFLAGS) $<
+LeftToeBottom_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/LeftToeBottom_src.c
+	$(CC) -c $(CFLAGS) $<
+LeftToeJoint_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/LeftToeJoint_src.c
+	$(CC) -c $(CFLAGS) $<
+RightToeBottomBack_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/RightToeBottomBack_src.c
+	$(CC) -c $(CFLAGS) $<
+RightToeBottomFront_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/RightToeBottomFront_src.c
+	$(CC) -c $(CFLAGS) $<
+RightToeBottom_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/RightToeBottom_src.c
+	$(CC) -c $(CFLAGS) $<
+RightToeJoint_src.obj :	c:/users/mengy/desktop/FINAL_~1/CASSIE~1/CASSIE~1/CONTRO~1/FLATGR~1/utils/funcs/kin/src/RightToeJoint_src.c
+	$(CC) -c $(CFLAGS) $<

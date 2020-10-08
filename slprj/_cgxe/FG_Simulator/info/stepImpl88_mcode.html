@@ -1,0 +1,108 @@
+<!-- saved from url=(0014)about:internet -->
+<html>
+<body>
+<script src="resources/eml_report_loadable_data.js"></script>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,1" id="srcline1"> 1</a></span><span class="line"><span class="comment">% RemoteSpoofer</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,2" id="srcline2"> 2</a></span><span class="line"><span class="keyword">classdef</span> RemoteSpoofer &lt; matlab.System &amp; matlab.system.mixin.Propagates <span class="comment">%#codegen</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,3" id="srcline3"> 3</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="3,4" id="srcline4"> 4</a></span><span class="line">    <span class="comment">% PROTECTED PROPERTIES ==================================================</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,5" id="srcline5"> 5</a></span><span class="line">    <span class="keyword">properties</span> (Access = protected)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,6" id="srcline6"> 6</a></span><span class="line">    <span class="keyword">end</span> <span class="comment">% properties</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,7" id="srcline7"> 7</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="3,8" id="srcline8"> 8</a></span><span class="line">    <span class="comment">% Private variables</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,9" id="srcline9"> 9</a></span><span class="line">    <span class="keyword">properties</span>(Access = private)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,10" id="srcline10">10</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,11" id="srcline11">11</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="3,12" id="srcline12">12</a></span><span class="line">    <span class="comment">% Pre-computed constants</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,13" id="srcline13">13</a></span><span class="line">    <span class="keyword">properties</span>(Access = private, Constant)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,14" id="srcline14">14</a></span><span class="line">    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,15" id="srcline15">15</a></span><span class="line">    </span></span>
+<span class="srcline"><span class="lineno"><a href="3,16" id="srcline16">16</a></span><span class="line">    <span class="comment">% PROTECTED METHODS =====================================================</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,17" id="srcline17">17</a></span><span class="line">    <span class="keyword">methods</span> (Access = protected)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,18" id="srcline18">18</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,19" id="srcline19">19</a></span><span class="line">        <span class="keyword">function</span> setupImpl(obj)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,20" id="srcline20">20</a></span><span class="line">            <span class="comment">%SETUPIMPL Initialize System object.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,21" id="srcline21">21</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% setupImpl</span></span></span>
+</pre>
+</div>
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,22" id="srcline22">22</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,23" id="srcline23">23</a></span><span class="line">        <span class="keyword">function</span> [<span class="var type1" id="S7T1U37">cassieOutputs</span>] = stepImpl(<span class="var type1" id="S8T54U40">obj</span>, <span class="var type1" id="S7T1U41">cassieOutputs</span>,<span class="var type1" id="S9T6U42">t</span>,<span class="var type1" id="S10T60U43">position_input</span>)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,24" id="srcline24">24</a></span><span class="line">            <span class="var type1" id="S10T60U46">position_input</span>(1)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,25" id="srcline25">25</a></span><span class="line">            <span class="var type1" id="S10T60U50">position_input</span>(2)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,26" id="srcline26">26</a></span><span class="line">            <span class="var type0" id="S11T0U54">RadioButton</span> = <span class="mxinfo " id="T61:U8">RadioChannelToButton(<span class="mxinfo " id="T13:U9"><span class="mxinfo " id="T12:U10"><span class="mxinfo " id="T2:U11"><span class="var type1" id="S7T1U60">cassieOutputs</span>.pelvis</span>.radio</span>.channel</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,27" id="srcline27">27</a></span><span class="line">            <span class="keyword">if</span> <span class="mxinfo " id="T9:U13"><span class="var type1" id="S9T6U67">t</span> &lt; <span class="mxinfo " id="T6:U15">5</span></span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,28" id="srcline28">28</a></span><span class="line">                <span class="var type0" id="S11T0U72">RadioButton</span>.SBA = <span class="mxinfo " id="T6:U16">0</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,29" id="srcline29">29</a></span><span class="line">            <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,30" id="srcline30">30</a></span><span class="line">            <span class="keyword">if</span> <span class="mxinfo " id="T9:U17"><span class="var type1" id="S9T6U78">t</span> &gt; <span class="mxinfo " id="T6:U19">5</span></span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,31" id="srcline31">31</a></span><span class="line">                <span class="var type0" id="S11T0U83">RadioButton</span>.SBA = <span class="mxinfo " id="T6:U20">1</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,32" id="srcline32">32</a></span><span class="line">            <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,33" id="srcline33">33</a></span><span class="line"><span class="comment">%             if t&gt;8</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,34" id="srcline34">34</a></span><span class="line"><span class="comment">%                 RadioButton.LVA = 0.4;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,35" id="srcline35">35</a></span><span class="line"><span class="comment">%                 RadioButton.RHA = 0.2;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,36" id="srcline36">36</a></span><span class="line"><span class="comment">%             end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,37" id="srcline37">37</a></span><span class="line">            <span class="keyword">if</span> <span class="mxinfo " id="T9:U21"><span class="mxinfo " id="T6:U22">mod(<span class="var type1" id="S9T6U91">t</span>, 1)</span> == <span class="mxinfo " id="T6:U24">0</span></span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,38" id="srcline38">38</a></span><span class="line">                    [<span class="var type1" id="S14T6U97">qyaw</span>, <span class="var type1" id="S15T6U98">qpitch</span>, <span class="var type1" id="S16T6U99">qroll</span>, <span class="var type1" id="S17T6U100">dqyaw</span>, <span class="var type1" id="S18T6U101">dqpitch</span>, <span class="var type1" id="S19T6U102">dqroll</span>] = IMU_to_Euler_v2(<span class="mxinfo " id="T11:U31"><span class="mxinfo " id="T14:U32"><span class="mxinfo " id="T2:U33"><span class="var type1" id="S7T1U108">cassieOutputs</span>.pelvis</span>.vectorNav</span>.orientation</span>, <span class="mxinfo " id="T16:U35"><span class="mxinfo " id="T14:U36"><span class="mxinfo " id="T2:U37"><span class="var type1" id="S7T1U115">cassieOutputs</span>.pelvis</span>.vectorNav</span>.angularVelocity</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,39" id="srcline39">39</a></span><span class="line">                    <span class="var type0" id="S21T0U121">qa</span> = <span class="mxinfo " id="T62:U39">CassieModule.getDriveProperty(<span class="var type1" id="S7T1U126">cassieOutputs</span>,<span class="string">'position'</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,40" id="srcline40">40</a></span><span class="line">                    <span class="var type0" id="S23T0U130">dqa</span> = <span class="mxinfo " id="T62:U41">CassieModule.getDriveProperty(<span class="var type1" id="S7T1U135">cassieOutputs</span>,<span class="string">'velocity'</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,41" id="srcline41">41</a></span><span class="line">                    <span class="var type0" id="S24T0U139">qj</span> = <span class="mxinfo " id="T63:U43">CassieModule.getJointProperty(<span class="var type1" id="S7T1U144">cassieOutputs</span>,<span class="string">'position'</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,42" id="srcline42">42</a></span><span class="line">                    <span class="var type0" id="S25T0U148">dqj</span> = <span class="mxinfo " id="T63:U45">CassieModule.getJointProperty(<span class="var type1" id="S7T1U153">cassieOutputs</span>,<span class="string">'velocity'</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,43" id="srcline43">43</a></span><span class="line"><span class="comment">%                     x0 = get_state(qa, dqa, qj, dqj, qyaw, qpitch, qroll, dqyaw, dqpitch, dqroll);</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,44" id="srcline44">44</a></span><span class="line">                    <span class="mxinfo " id="T60:U47"><span class="var type1" id="S26T60U157">x0</span> = <span class="mxinfo " id="T60:U49">[<span class="mxinfo " id="T6:U50"><span class="var type1" id="S10T60U161">position_input</span>(<span class="mxinfo " id="T6:U52">1</span>)</span>;<span class="mxinfo " id="T6:U53"><span class="var type1" id="S10T60U165">position_input</span>(<span class="mxinfo " id="T6:U55">2</span>)</span>]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,45" id="srcline45">45</a></span><span class="line">                    <span class="mxinfo " id="T28:U56"><span class="var type1" id="S27T28U169">xL</span> = <span class="mxinfo " id="T28:U58">[]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,46" id="srcline46">46</a></span><span class="line">                    <span class="mxinfo " id="T28:U59"><span class="var type1" id="S28T28U174">xU</span> = <span class="mxinfo " id="T28:U61">[]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,47" id="srcline47">47</a></span><span class="line">                    <span class="mxinfo " id="T60:U62"><span class="var type1" id="S29T60U179">uL</span> = <span class="mxinfo " id="T60:U64">[<span class="mxinfo " id="T6:U65">0</span>; <span class="mxinfo " id="T6:U66">-<span class="mxinfo " id="T6:U67">0.2</span></span>]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,48" id="srcline48">48</a></span><span class="line">                    <span class="mxinfo " id="T60:U68"><span class="var type1" id="S30T60U188">uU</span> = <span class="mxinfo " id="T60:U70">[<span class="mxinfo " id="T6:U71">1</span>; <span class="mxinfo " id="T6:U72">0.2</span>]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,49" id="srcline49">49</a></span><span class="line">                    <span class="mxinfo " id="T28:U73"><span class="var type1" id="S31T28U196">xN</span> = <span class="mxinfo " id="T28:U75">[]</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,50" id="srcline50">50</a></span><span class="line">                    <span class="mxinfo " id="T6:U76"><span class="var type1" id="S32T6U201">N</span> = <span class="mxinfo " id="T6:U78">5</span></span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,51" id="srcline51">51</a></span><span class="line">                    <span class="message error" id="M1F88C">[<span class="var type0" id="S33T0U206">feas</span>, <span class="var type0" id="S34T0U207">xOpt</span>, <span class="var type0" id="S35T0U208">uOpt</span>, <span class="var type0" id="S36T0U209">JOpt</span>, <span class="var type0" id="S37T0U210">xD</span>] = solve_cftoc(<span class="var type1" id="S32T6U213">N</span>, <span class="var type1" id="S26T60U214">x0</span>, <span class="var type1" id="S31T28U215">xN</span>, <span class="var type1" id="S9T6U216">t</span>, <span class="var type1" id="S27T28U217">xL</span>, <span class="var type1" id="S28T28U218">xU</span>, <span class="var type1" id="S29T60U219">uL</span>, <span class="var type1" id="S30T60U220">uU</span>)</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,52" id="srcline52">52</a></span><span class="line">                    <span class="keyword">if</span> <span class="var type0" id="S33T0U223">feas</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,53" id="srcline53">53</a></span><span class="line">                        <span class="var type0" id="S11T0U227">RadioButton</span>.LVA = <span class="var type0" id="S35T0U230">uOpt</span>(1, 1);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,54" id="srcline54">54</a></span><span class="line">                        <span class="var type0" id="S11T0U236">RadioButton</span>.RHA = <span class="var type0" id="S35T0U239">uOpt</span>(2, 1);                   </span></span>
+<span class="srcline"><span class="lineno"><a href="3,55" id="srcline55">55</a></span><span class="line">                    <span class="keyword">end</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,56" id="srcline56">56</a></span><span class="line">                <span class="keyword">end</span>   </span></span>
+<span class="srcline"><span class="lineno"><a href="3,57" id="srcline57">57</a></span><span class="line">            <span class="var type0" id="S11T0U245">RadioButton</span>.LSA = median([-1,<span class="var type0" id="S9T0U255">t</span>-0.5-1,1]);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,58" id="srcline58">58</a></span><span class="line">            <span class="var type0" id="S7T0U264">cassieOutputs</span>.pelvis.radio.channel = RadioButtonToChannel(<span class="var type0" id="S11T0U270">RadioButton</span>);</span></span>
+<span class="srcline"><span class="lineno"><a href="3,59" id="srcline59">59</a></span><span class="line"><span class="comment">%             if t &gt; 163.865</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,60" id="srcline60">60</a></span><span class="line"><span class="comment">%                 outputs.radio(10) = 1;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,61" id="srcline61">61</a></span><span class="line"><span class="comment">%             end[</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,62" id="srcline62">62</a></span><span class="line"><span class="comment">%             outputs.radio(10) = 1;</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,63" id="srcline63">63</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% stepImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,64" id="srcline64">64</a></span><span class="line">        </span></span>
+</pre>
+<div class="dead">
+<pre class="code">
+<span class="srcline"><span class="lineno"><a href="3,65" id="srcline65">65</a></span><span class="line">        <span class="comment">%% Define Outputs</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,66" id="srcline66">66</a></span><span class="line">        <span class="keyword">function</span> resetImpl(~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,67" id="srcline67">67</a></span><span class="line">            <span class="comment">%RESETIMPL Reset System object states.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,68" id="srcline68">68</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% resetImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,69" id="srcline69">69</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,70" id="srcline70">70</a></span><span class="line">        <span class="keyword">function</span> out = getOutputSizeImpl(~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,71" id="srcline71">71</a></span><span class="line">            <span class="comment">%GETOUTPUTSIZEIMPL Get sizes of output ports.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,72" id="srcline72">72</a></span><span class="line">            out = [1, 1];           </span></span>
+<span class="srcline"><span class="lineno"><a href="3,73" id="srcline73">73</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% getOutputSizeImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,74" id="srcline74">74</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,75" id="srcline75">75</a></span><span class="line">        <span class="keyword">function</span> out = getOutputDataTypeImpl(~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,76" id="srcline76">76</a></span><span class="line">            <span class="comment">%GETOUTPUTDATATYPEIMPL Get data types of output ports.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,77" id="srcline77">77</a></span><span class="line">            out = <span class="string">'CassieOutBus'</span>;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,78" id="srcline78">78</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% getOutputDataTypeImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,79" id="srcline79">79</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,80" id="srcline80">80</a></span><span class="line">        <span class="keyword">function</span> out = isOutputComplexImpl(~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,81" id="srcline81">81</a></span><span class="line">            <span class="comment">%ISOUTPUTCOMPLEXIMPL Complexity of output ports.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,82" id="srcline82">82</a></span><span class="line">            out = false;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,83" id="srcline83">83</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% isOutputComplexImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,84" id="srcline84">84</a></span><span class="line">        </span></span>
+<span class="srcline"><span class="lineno"><a href="3,85" id="srcline85">85</a></span><span class="line">        <span class="keyword">function</span> out= isOutputFixedSizeImpl(~)</span></span>
+<span class="srcline"><span class="lineno"><a href="3,86" id="srcline86">86</a></span><span class="line">            <span class="comment">%ISOUTPUTFIXEDSIZEIMPL Fixed-size or variable-size output ports.</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,87" id="srcline87">87</a></span><span class="line">            out = true;</span></span>
+<span class="srcline"><span class="lineno"><a href="3,88" id="srcline88">88</a></span><span class="line">        <span class="keyword">end</span> <span class="comment">% isOutputFixedSizeImpl</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,89" id="srcline89">89</a></span><span class="line">    <span class="keyword">end</span> <span class="comment">% methods</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,90" id="srcline90">90</a></span><span class="line"><span class="keyword">end</span> <span class="comment">% classdef</span></span></span>
+<span class="srcline"><span class="lineno"><a href="3,91" id="srcline91">91</a></span><span class="line"></span></span>
+<span class="srcline"><span class="lineno"><a href="3,92" id="srcline92">92</a></span><span class="line"> </span></span>
+</pre>
+</div>
+</body>
+</html>
